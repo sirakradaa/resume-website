@@ -41,16 +41,17 @@ const PageWrapper = ({
   children: React.ReactNode;
   bg: string;
 }) => (
-  <VStack bg={bg} minHeight="100vh" width="100%" spacing={0}>
+  <Box bg={bg} minHeight="100vh" display="flex" flexDirection="column">
     <Header />
     <Box flexGrow={1} width="100%" overflowY="auto">
       {children}
     </Box>
-  </VStack>
+    <Footer />
+  </Box>
 );
 
 export const App = () => {
-  const bgColor = useColorModeValue("brand.red", "brand.richBlack");
+  const bgColor = useColorModeValue("brand.cream", "brand.richBlack");
 
   return (
     <ChakraProvider theme={theme}>
@@ -65,7 +66,6 @@ export const App = () => {
             <Route path="/skills" element={<Skills />} />
             <Route path="/" element={<AboutMe />} />
           </Routes>
-          <Footer />
         </PageWrapper>
       </Router>
     </ChakraProvider>
