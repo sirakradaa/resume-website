@@ -5,7 +5,15 @@ export const Footer = () => {
   const textColor = useColorModeValue("brand.deltaBlue", "brand.cream");
 
   return (
-    <Box bg={bgColor} textColor={textColor} py={4}>
+    <Box
+      as="footer"
+      bg={bgColor}
+      color={textColor}
+      py={4}
+      position="sticky"
+      bottom={0}
+      width="100%"
+    >
       <Container maxW="container.xl">
         <Text textAlign="center">
           &copy; 2024 Sirak Radaa. All rights reserved.
