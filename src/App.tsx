@@ -1,38 +1,75 @@
-import * as React from "react"
 import {
   ChakraProvider,
+  extendTheme,
   Box,
-  Text,
-  Link,
+  useColorModeValue,
   VStack,
-  Code,
-  Grid,
-  theme,
-} from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
+} from "@chakra-ui/react";
+import AboutMe from "./aboutMe";
+import Skills from "./skills";
+import Contact from "./contact";
+import { Projects } from "./projects";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Hero from "./hero";
+import Header from "./components/header";
+import ScrollToTop from "./components/ScrollToTop";
+import Footer from "./components/Footer";
 
-export const App = () => (
-  <ChakraProvider theme={theme}>
-    <Box textAlign="center" fontSize="xl">
-      <Grid minH="100vh" p={3}>
-        <ColorModeSwitcher justifySelf="flex-end" />
-        <VStack spacing={8}>
-          <Logo h="40vmin" pointerEvents="none" />
-          <Text>
-            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-          </Text>
-          <Link
-            color="teal.500"
-            href="https://chakra-ui.com"
-            fontSize="2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Chakra
-          </Link>
-        </VStack>
-      </Grid>
+// Extend the theme to include custom colors
+const theme = extendTheme({
+  fonts: {
+    heading: "'Kalam', cursive",
+    body: "system-ui, sans-serif", // Keep the body font as is, or change if desired
+  },
+  colors: {
+    brand: {
+      beaver: "#B49082",
+      cream: "#F3F3BA",
+      deltaBlue: "#313D5A",
+      red: "#C25757",
+      white: "#FFFFFF",
+      yinMnBlue: "#485696",
+      richBlack: "#0D1321",
+    },
+  },
+});
+
+const PageWrapper = ({
+  children,
+  bg,
+}: {
+  children: React.ReactNode;
+  bg: string;
+}) => (
+  <VStack bg={bg} minHeight="100vh" width="100%" spacing={0}>
+    <Header />
+    <Box flexGrow={1} width="100%" overflowY="auto">
+      {children}
     </Box>
-  </ChakraProvider>
-)
+  </VStack>
+);
+
+export const App = () => {
+  const bgColor = useColorModeValue("brand.red", "brand.richBlack");
+
+  return (
+    <ChakraProvider theme={theme}>
+      <Router>
+        <ScrollToTop />
+        <PageWrapper bg={bgColor}>
+          <Routes>
+            <Route path="/hero" element={<Hero />} />
+            <Route path="/about" element={<AboutMe />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/" element={<AboutMe />} />
+          </Routes>
+          <Footer />
+        </PageWrapper>
+      </Router>
+    </ChakraProvider>
+  );
+};
+
+export default App;
