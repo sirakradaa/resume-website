@@ -9,7 +9,7 @@ import AboutMe from "./aboutMe";
 import Skills from "./skills";
 import Contact from "./contact";
 import { Projects } from "./projects";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Hero from "./hero";
 import Header from "./components/header";
 import ScrollToTop from "./components/ScrollToTop";
