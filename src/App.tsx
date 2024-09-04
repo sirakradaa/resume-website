@@ -25,10 +25,11 @@ const theme = extendTheme({
       beaver: "#B49082",
       cream: "#F3F3BA",
       deltaBlue: "#313D5A",
+      lighterBlue: "#5A6AB8",
       red: "#C25757",
+      richBlack: "#0D1321",
       white: "#FFFFFF",
       yinMnBlue: "#485696",
-      richBlack: "#0D1321",
     },
   },
 });
@@ -58,12 +59,11 @@ export const App = () => {
         <ScrollToTop />
         <PageWrapper bg={bgColor}>
           <Routes>
-            <Route path="/hero" element={<Hero />} />
+            <Route path="/" element={<Hero />} />
             <Route path="/about" element={<AboutMe />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/skills" element={<Skills />} />
-            <Route path="/" element={<AboutMe />} />
           </Routes>
         </PageWrapper>
       </Router>

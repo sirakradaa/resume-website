@@ -58,7 +58,7 @@ const Header = () => {
       <Flex justify="center" align="center">
         <Flex justify="space-between" align="center" width="100%" maxW="800px">
           <NavLink
-            to="/hero"
+            to="/"
             style={({ isActive }) => ({
               fontWeight: isActive ? "bold" : "normal",
               marginRight: "1rem",
@@ -83,6 +83,15 @@ const Header = () => {
             })}
           >
             Projects
+          </NavLink>
+          <NavLink
+            to="/skills"
+            style={({ isActive }) => ({
+              fontWeight: isActive ? "bold" : "normal",
+              marginRight: "1rem",
+            })}
+          >
+            Skills
           </NavLink>
           <NavLink
             to="/contact"

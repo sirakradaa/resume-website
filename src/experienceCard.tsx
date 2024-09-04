@@ -20,8 +20,9 @@ import {
   ListItem,
   ListIcon,
   useColorModeValue,
+  Button,
 } from "@chakra-ui/react";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import ThinkOn from "./assets/thinkon.png";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -74,8 +75,11 @@ export const ExperienceCard = ({ experience }: { experience: Experience }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const bgGradient = useColorModeValue(
     "linear(to-b, brand.cream, brand.red 100%)",
-    "linear(to-b, brand.red, brand.richBlack 0%)"
+    "linear(to-t, brand.cream, brand.beaver 50%)"
   );
+  const titleTextColor = useColorModeValue("brand.deltaBlue", "brand.white");
+  const cardTextColor = useColorModeValue("brand.deltaBlue", "brand.deltaBlue");
+  const popUpTextColor = useColorModeValue("brand.deltaBlue", "brand.cream");
   const shadowColor = useColorModeValue(
     "rgba(0, 0, 0, 0.1)",
     "rgba(255, 255, 255, 0.1)"
@@ -102,12 +106,22 @@ export const ExperienceCard = ({ experience }: { experience: Experience }) => {
       >
         <Image src={experience.image} alt={experience.company} width="100%" />
         <Box p={4}>
-          <Text fontWeight="bold" fontSize="lg" mb={2}>
+          <Text
+            fontWeight="bold"
+            fontSize="lg"
+            mb={2}
+            textColor={cardTextColor}
+          >
             {experience.company}
           </Text>
           <Wrap>
             {experience.technologies.map((tech, index) => (
-              <Tag key={index} size="sm" colorScheme="blue">
+              <Tag
+                key={index}
+                size="sm"
+                colorScheme="blue"
+                textColor={cardTextColor}
+              >
                 {tech}
               </Tag>
             ))}
@@ -125,7 +139,9 @@ export const ExperienceCard = ({ experience }: { experience: Experience }) => {
               exit={{ opacity: 0, y: 50 }}
               transition={{ duration: "0.3" }}
             >
-              <ModalHeader>{experience.company}</ModalHeader>
+              <ModalHeader textColor={titleTextColor}>
+                {experience.company}
+              </ModalHeader>
               <ModalCloseButton />
               <ModalBody>
                 <VStack align="start" spacing={4}>
@@ -136,7 +152,7 @@ export const ExperienceCard = ({ experience }: { experience: Experience }) => {
                   />
                   <List spacing={2} mt={2}>
                     {experience.description.map((desc, i) => (
-                      <ListItem key={i}>
+                      <ListItem key={i} textColor={popUpTextColor}>
                         <ListIcon as={ArrowForwardIcon} color="green.500" />
                         {desc}
                       </ListItem>
@@ -147,14 +163,27 @@ export const ExperienceCard = ({ experience }: { experience: Experience }) => {
                   </Text>
                   <Wrap>
                     {experience.technologies.map((tech, index) => (
-                      <Tag key={index} size="md" colorScheme="blue">
+                      <Tag key={index} size="md" textColor={popUpTextColor}>
                         {tech}
                       </Tag>
                     ))}
                   </Wrap>
-                  <Link href={experience.link} isExternal color="blue.500">
-                    View Site
-                  </Link>
+                  <Box
+                    width="100%"
+                    display="flex"
+                    justifyContent="center"
+                    mt={4}
+                  >
+                    <Button
+                      as={Link}
+                      href={experience.link}
+                      isExternal
+                      colorScheme="blue"
+                      rightIcon={<ExternalLinkIcon />}
+                    >
+                      View Company Site
+                    </Button>
+                  </Box>
                 </VStack>
               </ModalBody>
             </ModalContent>

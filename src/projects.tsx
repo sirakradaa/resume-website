@@ -23,14 +23,15 @@ const MotionHeading = motion(Heading);
 
 const ProjectCard = ({ project, index }: { project: any; index: number }) => {
   const cardBg = useColorModeValue("brand.cream", "brand.deltaBlue");
-  const textColor = useColorModeValue("brand.deltaBlue", "brand.yinMnBlue");
+  const buttonColor = useColorModeValue("brand.cream", "brand.yinMnBlue");
+  const textColor = useColorModeValue("brand.deltaBlue", "brand.deltaBlue");
   const gradientStartColor = useColorModeValue("brand.red", "brand.cream");
   const gradientEndColor = useColorModeValue("brand.cream", "brand.beaver");
 
   // Calculate the softness of the gradient based on the index
-  const softness = Math.min(index * 20 + 50, 90); // Increase softness by 10% for each card, max 90%
+  const softness = Math.min(index * 40 + 40, 90); // Increase softness by 10% for each card, max 90%
 
-  const bgCardGradient = `linear(to-b, ${gradientStartColor}, ${gradientEndColor} ${softness}%)`;
+  const bgCardGradient = `linear(to-t, ${gradientStartColor}, ${gradientEndColor} ${softness}%)`;
 
   const isEven = index % 2 === 0;
 
@@ -66,7 +67,12 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
             </Text>
             <Wrap>
               {project.technologies.map((tech: any, index: number) => (
-                <Tag key={index} size="sm" colorScheme="black">
+                <Tag
+                  key={index}
+                  size="sm"
+                  colorScheme="black"
+                  color={textColor}
+                >
                   {tech}
                 </Tag>
               ))}
@@ -74,7 +80,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
             <Link href={project.link} isExternal>
               <Button
                 rightIcon={<ExternalLinkIcon />}
-                colorScheme="blue"
+                bg={buttonColor}
                 size="sm"
               >
                 View Project

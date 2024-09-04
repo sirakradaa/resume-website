@@ -22,7 +22,7 @@ import Python from "./python.png";
 import React from "./react.png";
 import ReactNative from "./react-native.png";
 import Redux from "./redux.png";
-import MySQL from "./mysql.png";
+import SQL from "./sql.png";
 import TypeScript from "./typescript.png";
 
 import Arrival from "./arrival.png";
@@ -67,33 +67,163 @@ const ProjectsImages = [
 ];
 
 // Define an array of skills with their corresponding images
-const SkillsImages = [
-  { name: "AWS", logo: AWS },
-  { name: "Bootstrap", logo: Bootstrap },
-  { name: "CSharp", logo: CSharp },
-  { name: "CSS", logo: CSS },
-  { name: "Cypress", logo: Cypress },
-  { name: "Docker", logo: Docker },
-  { name: "ESLint", logo: ESLint },
-  { name: "ExpressJS", logo: ExpressJS },
-  { name: "Figma", logo: Figma },
-  { name: "Firebase", logo: Firebase },
-  { name: "Git", logo: Git },
-  { name: "HTML", logo: HTML },
-  { name: "IBM", logo: IBM },
-  { name: "Java", logo: Java },
-  { name: "JavaScript", logo: JavaScript },
-  { name: "MaterialUI", logo: MaterialUI },
-  { name: "NestJS", logo: NestJS },
-  { name: "NextJS", logo: NextJS },
-  { name: "Node", logo: Node },
-  { name: "PostgreSQL", logo: PostgreSQL },
-  { name: "Python", logo: Python },
-  { name: "React", logo: React },
-  { name: "ReactNative", logo: ReactNative },
-  { name: "Redux", logo: Redux },
-  { name: "MySQL", logo: MySQL },
-  { name: "TypeScript", logo: TypeScript },
+const SkillsList = [
+  {
+    name: "AWS",
+    logo: AWS,
+    professionalExperience: "1 year",
+    personalExperience: "1 year",
+  },
+  {
+    name: "Bootstrap",
+    logo: Bootstrap,
+    professionalExperience: "0 years",
+    personalExperience: "3 years",
+  },
+  {
+    name: "CSharp",
+    logo: CSharp,
+    professionalExperience: "0 years",
+    personalExperience: "4 years",
+  },
+  {
+    name: "CSS",
+    logo: CSS,
+    professionalExperience: "2 years",
+    personalExperience: "3 years",
+  },
+  {
+    name: "Cypress",
+    logo: Cypress,
+    professionalExperience: "2 years",
+    personalExperience: "2 years",
+  },
+  {
+    name: "Docker",
+    logo: Docker,
+    professionalExperience: "1 year",
+    personalExperience: "1 year",
+  },
+  {
+    name: "ESLint",
+    logo: ESLint,
+    professionalExperience: "2 years",
+    personalExperience: "2 years",
+  },
+  {
+    name: "ExpressJS",
+    logo: ExpressJS,
+    professionalExperience: "2 years",
+    personalExperience: "3 years",
+  },
+  {
+    name: "Figma",
+    logo: Figma,
+    professionalExperience: "0 years",
+    personalExperience: "2 years",
+  },
+  {
+    name: "Firebase",
+    logo: Firebase,
+    professionalExperience: "0 years",
+    personalExperience: "5 years",
+  },
+  {
+    name: "Git",
+    logo: Git,
+    professionalExperience: "2 years",
+    personalExperience: "5 years",
+  },
+  {
+    name: "HTML",
+    logo: HTML,
+    professionalExperience: "2 years",
+    personalExperience: "3 years",
+  },
+  {
+    name: "IBM",
+    logo: IBM,
+    professionalExperience: "0 years",
+    personalExperience: "1 year",
+  },
+  {
+    name: "Java",
+    logo: Java,
+    professionalExperience: "2 years",
+    personalExperience: "4 years",
+  },
+  {
+    name: "JavaScript",
+    logo: JavaScript,
+    professionalExperience: "2 years",
+    personalExperience: "3 years",
+  },
+  {
+    name: "MaterialUI",
+    logo: MaterialUI,
+    professionalExperience: "2 years",
+    personalExperience: "3 years",
+  },
+  {
+    name: "NestJS",
+    logo: NestJS,
+    professionalExperience: "2 years",
+    personalExperience: "3 years",
+  },
+  {
+    name: "NextJS",
+    logo: NextJS,
+    professionalExperience: "0 years",
+    personalExperience: "1 year",
+  },
+  {
+    name: "Node",
+    logo: Node,
+    professionalExperience: "2 years",
+    personalExperience: "3 years",
+  },
+  {
+    name: "PostgreSQL",
+    logo: PostgreSQL,
+    professionalExperience: "0 years",
+    personalExperience: "3 years",
+  },
+  {
+    name: "Python",
+    logo: Python,
+    professionalExperience: "0 years",
+    personalExperience: "6 years",
+  },
+  {
+    name: "React",
+    logo: React,
+    professionalExperience: "2 years",
+    personalExperience: "3 years",
+  },
+  {
+    name: "ReactNative",
+    logo: ReactNative,
+    professionalExperience: "0 years",
+    personalExperience: "1 year",
+  },
+  {
+    name: "Redux",
+    logo: Redux,
+    professionalExperience: "2 years",
+    personalExperience: "3 years",
+  },
+  {
+    name: "SQL",
+    logo: SQL,
+    professionalExperience: "2 years",
+    personalExperience: "3 years",
+  },
+  {
+    name: "TypeScript",
+    logo: TypeScript,
+    professionalExperience: "2 years",
+    personalExperience: "3 years",
+  },
 ];
 
-export { ProjectsImages, SkillsImages };
+export { ProjectsImages, SkillsList };
