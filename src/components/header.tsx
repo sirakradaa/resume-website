@@ -35,6 +35,11 @@ const Header = () => {
 
   const isMobile = useBreakpointValue({ base: true, md: false });
 
+  const menuBgColor = useColorModeValue(
+    "rgba(180, 144, 130, 0.6)", // Light mode: brand.red with 90% opacity
+    "rgba(49, 61, 90, 0.6)" // Dark mode: brand.deltaBlue with 90% opacity
+  );
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -152,12 +157,25 @@ const Header = () => {
                 as={IconButton}
                 aria-label="Options"
                 icon={<HamburgerIcon />}
-                variant="outline"
+                variant="ghost"
                 size="lg"
+                color={textColor}
+                _hover={hoverStyle}
               />
-              <MenuList>
+              <MenuList bg={menuBgColor} backdropFilter="blur(5px)">
                 {menuItems.map((item) => (
-                  <MenuItem key={item} as="div" p={0}>
+                  <MenuItem
+                    key={item}
+                    as="div"
+                    p={0}
+                    bg="transparent"
+                    _hover={{
+                      bg:
+                        colorMode === "light"
+                          ? "rgba(194, 87, 87, 0.7)" // Lighter hover effect
+                          : "rgba(49, 61, 90, 0.7)", // Lighter hover effect
+                    }}
+                  >
                     <MenuItemLink
                       to={item === "Work" ? "/" : `/${item.toLowerCase()}`}
                     >
