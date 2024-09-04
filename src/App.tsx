@@ -3,7 +3,6 @@ import {
   extendTheme,
   Box,
   useColorModeValue,
-  VStack,
 } from "@chakra-ui/react";
 import AboutMe from "./aboutMe";
 import Skills from "./skills";
