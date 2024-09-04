@@ -12,7 +12,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { SkillsList } from "./assets/images";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import FloatingShapes from "./components/floatingShapes";
 
 const MotionHeading = motion(Heading);
