@@ -22,7 +22,11 @@ import {
   useColorModeValue,
   Button,
 } from "@chakra-ui/react";
-import { ArrowForwardIcon, ExternalLinkIcon } from "@chakra-ui/icons";
+import {
+  ArrowForwardIcon,
+  ExternalLinkIcon,
+  InfoOutlineIcon,
+} from "@chakra-ui/icons";
 import ThinkOn from "./assets/thinkon.png";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -103,7 +107,15 @@ export const ExperienceCard = ({ experience }: { experience: Experience }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
+        position="relative"
       >
+        <ExternalLinkIcon
+          position="absolute"
+          top={2}
+          right={2}
+          boxSize={5}
+          color={cardTextColor}
+        />
         <Image src={experience.image} alt={experience.company} width="100%" />
         <Box p={4}>
           <Text
