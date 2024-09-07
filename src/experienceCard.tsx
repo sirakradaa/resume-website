@@ -43,14 +43,14 @@ interface Experience {
 const experiences: Experience[] = [
   {
     company: "ThinkOn Inc.",
-    role: "Software Developer",
+    role: "Software Engineer",
     duration: "June 2022 - Present",
     description: [
       "Created an asynchronous download application using JavaScript, TypeScript, and React for the front-end, along with Node.js and Nest.js for the back-end, reducing the client’s download failure rate from 12% to 0%. This improvement significantly enhanced connection stability and increased download speeds by optimizing the data and file storage environment",
       "Reduced technical debt for 21 enterprise companies by migrating the front-end from Angular to React, recreating Angular functionality and UI with React using Material UI and Lodash",
       "Designed automated test cases using Cypress testing framework for a high-profile migration project, transitioning from HTML/CSS to Material UI, which contributed to a 33% increase in revenue growth in 2023",
-      "Conducted manual testing to identify and verify bugs reported by customers and developers, resolving 50% of the identified issues",
-      "Documented an onboarding manual for new developers, reducing onboarding time by 33%. Also onboarded junior and intermediate developers, providing ongoing training and support post-onboarding",
+      "Ensured software systems meet safety standards through thorough assessment and verification of bugs reported by customers and engineers, resolving 50% of the identified issues",
+      "Created and documented an onboarding manual for new engineers, reducing onboarding time by 33%. Including onboarded junior and intermediate engineers, providing ongoing training and support post-onboarding",
       "Participated in a 24/7 on-call rotations for 1 week every 5 months",
     ],
     image: ThinkOn,

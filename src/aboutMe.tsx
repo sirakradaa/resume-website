@@ -118,7 +118,7 @@ const AboutMe = () => {
         >
           <Box flex="1" pr={[0, 0, 10]} pb={[5, 5, 0]}>
             <Text mb={4}>
-              As a Software Developer at ThinkOn Inc., I have been working on
+              As a Software Engineer at ThinkOn Inc., I have been working on
               developing cloud-native applications using a variety of modern
               technologies, including JavaScript, TypeScript, React, Redux,
               Nest.js, Node.js, Git, and Material-UI. In this role, I have been
@@ -144,7 +144,7 @@ const AboutMe = () => {
               organization. Combined with my strong communication skills and
               willingness to embrace challenges, this makes me a valuable asset
               to any team. Whether I am developing new features, designing
-              automated test cases, or onboarding junior developers, I am driven
+              automated test cases, or onboarding junior engineers, I am driven
               by a passion for creating high-quality software solutions that
               exceed client expectations.
             </Text>

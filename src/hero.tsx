@@ -80,7 +80,7 @@ const Hero = () => {
               color={textColor}
               textShadow={`4px 4px 8px ${shadowColor}`} // Increased shadow for better visibility
             >
-              A Software Developer
+              A Software Engineer
             </MotionHeading>
           </MotionStack>
           <MotionText
@@ -94,7 +94,7 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
             mb={12}
           >
-            I am a dedicated software developer with a strong focus on creating
+            I am a dedicated software engineer with a strong focus on creating
             efficient and user-friendly web applications. My experience spans
             various technologies, and I'm committed to continuous learning and
             delivering high-quality solutions.
