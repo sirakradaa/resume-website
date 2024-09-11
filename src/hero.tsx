@@ -17,15 +17,15 @@ const MotionText = motion(Text);
 const MotionStack = motion(Stack);
 
 const Hero = () => {
-  const textColor = useColorModeValue("brand.deltaBlue", "brand.cream");
-  const bgColor = useColorModeValue("brand.cream", "brand.richBlack");
+  const textColor = useColorModeValue("brand.cream", "brand.deltaBlue");
+  const bgColor = useColorModeValue("brand.richBlack", "brand.cream");
   const bgGradient = useColorModeValue(
-    "linear(to-b, brand.red, brand.cream 80%)",
-    "linear(to-b, brand.red, brand.richBlack 0%)"
+    "linear(to-b, brand.red, brand.richBlack 0%)",
+    "linear(to-b, brand.red, brand.cream 80%)"
   );
   const shadowColor = useColorModeValue(
-    "rgba(0, 0, 0, 0.2)",
-    "rgba(255, 255, 255, 0.2)"
+    "rgba(255, 255, 255, 0.2)",
+    "rgba(0, 0, 0, 0.2)"
   );
 
   return (
@@ -50,7 +50,7 @@ const Hero = () => {
       >
         <VStack spacing={8} align="center">
           <MotionStack
-            spacing={[6, 8, 10]} // Increased spacing between lines
+            spacing={[6, 8, 10]}
             mt={4}
             align="center"
             initial={{ opacity: 0, y: -50 }}
@@ -60,31 +60,31 @@ const Hero = () => {
           >
             <MotionHeading
               as="h1"
-              fontSize={["5xl", "6xl", "7xl", "8xl"]} // Increased font sizes
+              fontSize={["5xl", "6xl", "7xl", "9xl"]}
               fontWeight="normal"
               textAlign="center"
               lineHeight={1}
               letterSpacing="tight"
               color={textColor}
-              textShadow={`4px 4px 8px ${shadowColor}`} // Increased shadow for better visibility
+              textShadow={`4px 4px 8px ${shadowColor}`}
             >
               Hi, I'm Sirak
             </MotionHeading>
             <MotionHeading
               as="h1"
-              fontSize={["4xl", "5xl", "6xl", "7xl"]} // Increased font sizes
+              fontSize={["4xl", "5xl", "6xl", "7xl"]}
               fontWeight="normal"
               textAlign="center"
               lineHeight={1}
               letterSpacing="tight"
               color={textColor}
-              textShadow={`4px 4px 8px ${shadowColor}`} // Increased shadow for better visibility
+              textShadow={`4px 4px 8px ${shadowColor}`}
             >
               A Software Engineer
             </MotionHeading>
           </MotionStack>
           <MotionText
-            fontSize={["lg", "xl", "2xl"]}
+            fontSize={["lg", "xl", "1xl"]}
             textAlign="center"
             maxWidth="800px"
             color={textColor}

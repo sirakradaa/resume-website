@@ -8,19 +8,19 @@ const FloatingShapes = () => {
 
   const shapeStyles = {
     position: "absolute",
-    opacity: colorMode === "light" ? 0.6 : 0.8, // Increase opacity slightly in dark mode
+    opacity: colorMode === "dark" ? 0.6 : 0.8, // Increase opacity slightly in dark mode
     animation: "float 10s infinite ease-in-out",
   };
 
-  const starColor = useColorModeValue("black", "white");
+  const starColor = useColorModeValue("white", "black");
 
   return (
     <>
       {shapes.map((_, index) => (
         <Box
           key={index}
-          width={colorMode === "light" ? "40px" : "5px"} // Smaller in dark mode
-          height={colorMode === "light" ? "40px" : "5px"} // Smaller in dark mode
+          width={colorMode === "dark" ? "40px" : "5px"} // Smaller in dark mode
+          height={colorMode === "dark" ? "40px" : "5px"} // Smaller in dark mode
           top={`${Math.random() * 100}%`}
           left={`${Math.random() * 100}%`}
           sx={{
@@ -36,10 +36,10 @@ const FloatingShapes = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             stroke={starColor}
-            strokeWidth={colorMode === "light" ? "2" : "4"} // Thicker stroke in dark mode for more shine
+            strokeWidth={colorMode === "dark" ? "2" : "4"} // Thicker stroke in dark mode for more shine
             animate={{
-              scale: colorMode === "light" ? [1, 1.1, 1] : [1, 1.3, 1], // More pronounced pulsing in dark mode
-              opacity: colorMode === "light" ? [0.6, 0.8, 0.6] : [0.6, 1, 0.6], // More opacity variation in dark mode
+              scale: colorMode === "dark" ? [1, 1.1, 1] : [1, 1.3, 1], // More pronounced pulsing in dark mode
+              opacity: colorMode === "dark" ? [0.6, 0.8, 0.6] : [0.6, 1, 0.6], // More opacity variation in dark mode
             }}
             transition={{
               duration: 1.5,

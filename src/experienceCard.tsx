@@ -22,11 +22,7 @@ import {
   useColorModeValue,
   Button,
 } from "@chakra-ui/react";
-import {
-  ArrowForwardIcon,
-  ExternalLinkIcon,
-  InfoOutlineIcon,
-} from "@chakra-ui/icons";
+import { ArrowForwardIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import ThinkOn from "./assets/thinkon.png";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -78,16 +74,20 @@ const MotionBox = motion(Box);
 export const ExperienceCard = ({ experience }: { experience: Experience }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const bgGradient = useColorModeValue(
-    "linear(to-b, brand.cream, brand.red 100%)",
-    "linear(to-t, brand.cream, brand.beaver 50%)"
+    "linear(to-t, brand.cream, brand.beaver 50%)",
+    "linear(to-b, brand.cream, brand.red 100%)"
   );
-  const titleTextColor = useColorModeValue("brand.deltaBlue", "brand.white");
+  const titleTextColor = useColorModeValue("brand.white", "brand.deltaBlue");
   const cardTextColor = useColorModeValue("brand.deltaBlue", "brand.deltaBlue");
-  const popUpTextColor = useColorModeValue("brand.deltaBlue", "brand.cream");
+  const popUpTextColor = useColorModeValue("brand.cream", "brand.deltaBlue");
   const shadowColor = useColorModeValue(
-    "rgba(0, 0, 0, 0.1)",
-    "rgba(255, 255, 255, 0.1)"
+    "rgba(255, 255, 255, 0.1)",
+    "rgba(0, 0, 0, 0.1)"
   );
+  const modalBg = useColorModeValue("brand.richBlack", "white");
+  const buttonColor = useColorModeValue("brand.lighterBlue", "brand.yinMnBlue");
+  const buttonTextColor = useColorModeValue("white", "white");
+  const tagColor = useColorModeValue("brand.deltaBlue", "brand.cream");
 
   return (
     <>
@@ -150,6 +150,7 @@ export const ExperienceCard = ({ experience }: { experience: Experience }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 50 }}
               transition={{ duration: "0.3" }}
+              bg={modalBg}
             >
               <ModalHeader textColor={titleTextColor}>
                 {experience.company}
@@ -170,12 +171,21 @@ export const ExperienceCard = ({ experience }: { experience: Experience }) => {
                       </ListItem>
                     ))}
                   </List>
-                  <Text fontWeight="bold" fontSize="lg">
+                  <Text
+                    fontWeight="bold"
+                    fontSize="lg"
+                    textColor={titleTextColor}
+                  >
                     Technologies Used:
                   </Text>
                   <Wrap>
                     {experience.technologies.map((tech, index) => (
-                      <Tag key={index} size="md" textColor={popUpTextColor}>
+                      <Tag
+                        key={index}
+                        size="md"
+                        textColor={popUpTextColor}
+                        bg={tagColor}
+                      >
                         {tech}
                       </Tag>
                     ))}
@@ -190,7 +200,8 @@ export const ExperienceCard = ({ experience }: { experience: Experience }) => {
                       as={Link}
                       href={experience.link}
                       isExternal
-                      colorScheme="blue"
+                      bg={buttonColor}
+                      color={buttonTextColor}
                       rightIcon={<ExternalLinkIcon />}
                     >
                       View Company Site

@@ -29,9 +29,9 @@ const HexagonCard = ({ skill, index }: { skill: Skill; index: number }) => {
   const [isHovered, setIsHovered] = React.useState(false);
   const [isTapped, setIsTapped] = React.useState(false);
   const [isRotated, setIsRotated] = React.useState(false);
-  const textColor = useColorModeValue("brand.deltaBlue", "brand.yinMnBlue");
+  const textColor = useColorModeValue("brand.yinMnBlue", "brand.deltaBlue");
   const gradientStartColor = useColorModeValue("brand.cream", "brand.cream");
-  const gradientEndColor = useColorModeValue("brand.red", "brand.beaver");
+  const gradientEndColor = useColorModeValue("brand.beaver", "brand.red");
 
   const softness = Math.min(index * 20 + 50, 90);
   const bgCardGradient = `linear(to-t, ${gradientStartColor}, ${gradientEndColor} ${softness}%)`;
@@ -136,15 +136,15 @@ const HexagonCard = ({ skill, index }: { skill: Skill; index: number }) => {
 };
 
 const Skills = () => {
-  const bgColor = useColorModeValue("brand.cream", "brand.richBlack");
-  const textColor = useColorModeValue("brand.deltaBlue", "brand.cream");
+  const bgColor = useColorModeValue("brand.richBlack", "brand.cream");
+  const textColor = useColorModeValue("brand.cream", "brand.deltaBlue");
   const bgGradient = useColorModeValue(
-    "linear(to-b, brand.red, brand.cream 50%)",
-    "linear(to-b, brand.red, brand.richBlack 0%)"
+    "linear(to-b, brand.red, brand.richBlack 0%)",
+    "linear(to-b, brand.red, brand.cream 50%)"
   );
   const shadowColor = useColorModeValue(
-    "rgba(0, 0, 0, 0.1)",
-    "rgba(255, 255, 255, 0.1)"
+    "rgba(255, 255, 255, 0.1)",
+    "rgba(0, 0, 0, 0.1)"
   );
 
   const toast = useToast();

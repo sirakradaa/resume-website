@@ -30,7 +30,7 @@ const NavLink = (props: Props) => {
       rounded={"md"}
       _hover={{
         textDecoration: "none",
-        bg: useColorModeValue("gray.200", "gray.700"),
+        bg: useColorModeValue("gray.700", "gray.200"),
       }}
       href={"#"}
     >
@@ -42,7 +42,7 @@ const NavLink = (props: Props) => {
 export const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
-  const bgColor = useColorModeValue("gray.100", "gray.900");
+  const bgColor = useColorModeValue("gray.900", "gray.100");
 
   return (
     <>
@@ -69,7 +69,7 @@ export const NavBar = () => {
           </HStack>
           <Flex alignItems={"center"}>
             <Button onClick={toggleColorMode} ml={4}>
-              {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+              {colorMode === "dark" ? <MoonIcon /> : <SunIcon />}
             </Button>
           </Flex>
         </Flex>

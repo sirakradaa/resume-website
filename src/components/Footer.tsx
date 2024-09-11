@@ -1,8 +1,8 @@
 import { Box, Container, Text, useColorModeValue } from "@chakra-ui/react";
 
 export const Footer = () => {
-  const textColor = useColorModeValue("brand.deltaBlue", "brand.cream");
-  const bgColor = useColorModeValue("brand.cream", "brand.richBlack");
+  const textColor = useColorModeValue("brand.cream", "brand.deltaBlue");
+  const bgColor = useColorModeValue("brand.richBlack", "brand.cream");
 
   return (
     <Box as="footer" color={textColor} bg={bgColor} py={4} width="100%">

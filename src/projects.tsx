@@ -22,11 +22,12 @@ const MotionBox = motion(Box);
 const MotionHeading = motion(Heading);
 
 const ProjectCard = ({ project, index }: { project: any; index: number }) => {
-  const cardBg = useColorModeValue("brand.cream", "brand.deltaBlue");
-  const buttonColor = useColorModeValue("brand.cream", "brand.yinMnBlue");
+  const cardBg = useColorModeValue("brand.deltaBlue", "brand.cream");
+  const buttonColor = useColorModeValue("brand.yinMnBlue", "brand.cream");
   const textColor = useColorModeValue("brand.deltaBlue", "brand.deltaBlue");
-  const gradientStartColor = useColorModeValue("brand.red", "brand.cream");
-  const gradientEndColor = useColorModeValue("brand.cream", "brand.beaver");
+  const buttonTextColor = useColorModeValue("white", "black");
+  const gradientStartColor = useColorModeValue("brand.cream", "brand.red");
+  const gradientEndColor = useColorModeValue("brand.beaver", "brand.cream");
 
   // Calculate the softness of the gradient based on the index
   const softness = Math.min(index * 40 + 40, 90); // Increase softness by 10% for each card, max 90%
@@ -67,12 +68,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
             </Text>
             <Wrap>
               {project.technologies.map((tech: any, index: number) => (
-                <Tag
-                  key={index}
-                  size="sm"
-                  colorScheme="black"
-                  color={textColor}
-                >
+                <Tag key={index} size="sm" color={textColor}>
                   {tech}
                 </Tag>
               ))}
@@ -81,6 +77,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
               <Button
                 rightIcon={<ExternalLinkIcon />}
                 bg={buttonColor}
+                color={buttonTextColor}
                 size="sm"
               >
                 View Project
@@ -94,15 +91,15 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
 };
 
 export const Projects = () => {
-  const bgColor = useColorModeValue("brand.cream", "brand.richBlack");
-  const textColor = useColorModeValue("brand.deltaBlue", "brand.cream");
+  const bgColor = useColorModeValue("brand.richBlack", "brand.cream");
+  const textColor = useColorModeValue("brand.cream", "brand.deltaBlue");
   const bgGradient = useColorModeValue(
-    "linear(to-b, brand.red, brand.cream 50%)",
-    "linear(to-b, brand.red, brand.richBlack 0%)"
+    "linear(to-b, brand.red, brand.richBlack 0%)",
+    "linear(to-b, brand.red, brand.cream 50%)"
   );
   const shadowColor = useColorModeValue(
-    "rgba(0, 0, 0, 0.1)",
-    "rgba(255, 255, 255, 0.1)"
+    "rgba(255, 255, 255, 0.1)",
+    "rgba(0, 0, 0, 0.1)"
   );
 
   return (

@@ -26,8 +26,8 @@ const Header = () => {
   const location = useLocation();
 
   const bgColor = useColorModeValue(
-    isScrolled ? "rgba(194, 87, 87, 0.8)" : "transparent",
-    isScrolled ? "rgba(49, 61, 90, 0.8)" : "transparent"
+    isScrolled ? "rgba(49, 61, 90, 0.8)" : "transparent",
+    isScrolled ? "rgba(194, 87, 87, 0.8)" : "transparent"
   );
   const textColor = useColorModeValue("brand.cream", "brand.cream");
   const boxShadow = isScrolled ? "0 4px 6px rgba(0, 0, 0, 0.1)" : "none";
@@ -36,8 +36,8 @@ const Header = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   const menuBgColor = useColorModeValue(
-    "rgba(180, 144, 130, 0.6)", // Light mode: brand.red with 90% opacity
-    "rgba(49, 61, 90, 0.6)" // Dark mode: brand.deltaBlue with 90% opacity
+    "rgba(49, 61, 90, 0.6)", // Light mode: brand.red with 90% opacity
+    "rgba(180, 144, 130, 0.6)" // Dark mode: brand.deltaBlue with 90% opacity
   );
 
   useEffect(() => {
@@ -69,7 +69,7 @@ const Header = () => {
   };
 
   const hoverStyle = {
-    bg: colorMode === "light" ? "brand.beaver" : "brand.yinMnBlue",
+    bg: colorMode === "dark" ? "brand.beaver" : "brand.yinMnBlue",
     color: "brand.cream",
   };
 
@@ -87,7 +87,7 @@ const Header = () => {
     const activeStyle = {
       fontWeight: "bold",
       backgroundColor:
-        colorMode === "light" ? "brand.beaver" : "brand.yinMnBlue",
+        colorMode === "dark" ? "brand.beaver" : "brand.yinMnBlue",
       color: "brand.cream",
     };
     const inactiveStyle = {
@@ -172,8 +172,8 @@ const Header = () => {
                     _hover={{
                       bg:
                         colorMode === "light"
-                          ? "rgba(194, 87, 87, 0.7)" // Lighter hover effect
-                          : "rgba(49, 61, 90, 0.7)", // Lighter hover effect
+                          ? "rgba(49, 61, 90, 0.7)"
+                          : "rgba(194, 87, 87, 0.7)",
                     }}
                   >
                     <MenuItemLink
@@ -204,7 +204,7 @@ const Header = () => {
                 variant="ghost"
                 _hover={hoverStyle}
               >
-                {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+                {colorMode === "dark" ? <MoonIcon /> : <SunIcon />}
               </Button>
             </Flex>
           </>
@@ -233,7 +233,7 @@ const Header = () => {
                 variant="ghost"
                 _hover={hoverStyle}
               >
-                {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+                {colorMode === "dark" ? <MoonIcon /> : <SunIcon />}
               </Button>
             </Flex>
           </Flex>

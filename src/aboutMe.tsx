@@ -42,16 +42,16 @@ const Smoke = styled.div`
 `;
 
 const AboutMe = () => {
-  const bgColor = useColorModeValue("brand.cream", "brand.black");
-  const textColor = useColorModeValue("brand.deltaBlue", "brand.cream");
+  const bgColor = useColorModeValue("brand.black", "brand.cream");
+  const textColor = useColorModeValue("brand.cream", "brand.deltaBlue");
   const imageRef = useRef(null);
   const bgGradient = useColorModeValue(
-    "linear(to-b, brand.red, brand.cream 50%)",
-    "linear(to-b, brand.red, brand.richBlack 0%)"
+    "linear(to-b, brand.red, brand.richBlack 0%)",
+    "linear(to-b, brand.red, brand.cream 50%)"
   );
 
   const { colorMode } = useColorMode();
-  const sirakImage = useColorModeValue(SirakDay, SirakNight);
+  const sirakImage = useColorModeValue(SirakNight, SirakDay);
 
   useEffect(() => {
     if (imageRef.current) {
@@ -67,8 +67,8 @@ const AboutMe = () => {
   }, []);
 
   const shadowColor = useColorModeValue(
-    "rgba(0, 0, 0, 0.1)",
-    "rgba(255, 255, 255, 0.1)"
+    "rgba(255, 255, 255, 0.1)",
+    "rgba(0, 0, 0, 0.1)"
   );
 
   return (
@@ -160,7 +160,7 @@ const AboutMe = () => {
               ref={imageRef}
               borderRadius="2xl"
               src={sirakImage}
-              alt={`Sirak Radaa - ${colorMode === "light" ? "Day" : "Night"}`}
+              alt={`Sirak Radaa - ${colorMode === "dark" ? "Day" : "Night"}`}
               opacity="0"
               transform="translateY(-50px)"
             />

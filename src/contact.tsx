@@ -90,27 +90,27 @@ export const Contact = () => {
       );
   };
 
-  const bgColor = useColorModeValue("brand.cream", "brand.richBlack");
-  const textColor = useColorModeValue("brand.deltaBlue", "brand.cream");
+  const bgColor = useColorModeValue("brand.richBlack", "brand.cream");
+  const textColor = useColorModeValue("brand.cream", "brand.deltaBlue");
   const buttonBackgroundColor = useColorModeValue(
-    "brand.red",
-    "brand.deltaBlue"
-  );
-  const buttonText = useColorModeValue("brand.cream", "brand.cream");
-  const buttonHighlightBackground = useColorModeValue(
     "brand.deltaBlue",
     "brand.red"
   );
-  const bgGradient = useColorModeValue(
-    "linear(to-b, brand.red, brand.cream 50%)",
-    "linear(to-b, brand.red, brand.richBlack 0%)"
+  const buttonText = useColorModeValue("brand.cream", "brand.cream");
+  const buttonHighlightBackground = useColorModeValue(
+    "brand.red",
+    "brand.deltaBlue"
   );
-  const iconColor = useColorModeValue("brand.deltaBlue", "brand.cream");
+  const bgGradient = useColorModeValue(
+    "linear(to-b, brand.red, brand.richBlack 0%)",
+    "linear(to-b, brand.red, brand.cream 50%)"
+  );
+  const iconColor = useColorModeValue("brand.cream", "brand.deltaBlue");
 
   const inputStyles = {
     border: "none",
     borderBottom: "2px solid",
-    borderColor: useColorModeValue("brand.deltaBlue", "brand.cream"),
+    borderColor: useColorModeValue("brand.cream", "brand.deltaBlue"),
     borderRadius: "0",
     px: 0,
     bg: "transparent",

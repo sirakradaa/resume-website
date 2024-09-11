@@ -17,8 +17,9 @@ import Footer from "./components/Footer";
 // Extend the theme to include custom colors
 const theme = extendTheme({
   fonts: {
-    heading: "'Kalam', cursive",
-    body: "system-ui, sans-serif", // Keep the body font as is, or change if desired
+    heading:
+      '"acorn", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
+    body: '"acorn", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
   },
   colors: {
     brand: {
@@ -51,7 +52,7 @@ const PageWrapper = ({
 );
 
 export const App = () => {
-  const bgColor = useColorModeValue("brand.cream", "brand.richBlack");
+  const bgColor = useColorModeValue("brand.richBlack", "brand.cream");
 
   return (
     <ChakraProvider theme={theme}>
