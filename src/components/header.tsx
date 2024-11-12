@@ -57,12 +57,11 @@ const Header = () => {
   }, []);
 
   const handleResumeDownload = () => {
-    // Replace 'path_to_your_resume.pdf' with the actual path to your resume file
     const resumeUrl =
-      "https://docs.google.com/document/d/1pOMsrRROz-R5PxtvJ_3UZOGst2ImUohX/export?format=pdf";
+      "https://docs.google.com/document/d/1W8mIrU4YW83lp28y9xuJYZIHesWWQra3/export?format=pdf";
     const link = document.createElement("a");
     link.href = resumeUrl;
-    link.download = "Your_Name_Resume.pdf"; // Replace with your name
+    link.download = "Sirak Radaa - Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

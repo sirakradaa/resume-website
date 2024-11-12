@@ -39,15 +39,41 @@ interface Experience {
 const experiences: Experience[] = [
   {
     company: "ThinkOn Inc.",
-    role: "Software Engineer",
-    duration: "June 2022 - Present",
+    role: "Junior Software Engineer",
+    duration: "June 2022 - April 2024",
     description: [
-      "Created an asynchronous download application using JavaScript, TypeScript, and React for the front-end, along with Node.js and Nest.js for the back-end, reducing the client’s download failure rate from 12% to 0%. This improvement significantly enhanced connection stability and increased download speeds by optimizing the data and file storage environment",
-      "Reduced technical debt for 21 enterprise companies by migrating the front-end from Angular to React, recreating Angular functionality and UI with React using Material UI and Lodash",
-      "Designed automated test cases using Cypress testing framework for a high-profile migration project, transitioning from HTML/CSS to Material UI, which contributed to a 33% increase in revenue growth in 2023",
-      "Ensured software systems meet safety standards through thorough assessment and verification of bugs reported by customers and engineers, resolving 50% of the identified issues",
-      "Created and documented an onboarding manual for new engineers, reducing onboarding time by 33%. Including onboarded junior and intermediate engineers, providing ongoing training and support post-onboarding",
-      "Participated in a 24/7 on-call rotations for 1 week every 5 months",
+      "Developed 15+ features for a distributed backup platform, adapting 20 APIs to Veeam updates, improving data integration and reducing upgrade time by 25%, using TypeScript, JavaScript, Node.js, React, Java, and MySQL.",
+      "Maintain 100% uptime by resolving all incidents and outages during SRE rotations.",
+      "Engineered a batch processing system, using asynchronous processing to prep downloads, eliminating a 12% error rate and increasing data speeds.",
+      "Architected and built 60+ scalable features across microservices, enhancing user engagement and reducing server load with effective caching, using TypeScript, JavaScript, Node.js, and REST APIs.",
+    ],
+    image: ThinkOn,
+    technologies: [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Redux",
+      "Node.js",
+      "Nest.js",
+      "Cypress",
+      "Material UI",
+      "Lodash",
+      "HTML/CSS",
+      "SQL",
+      "Git",
+      "Docker",
+    ],
+    link: "https://thinkon.com",
+  },
+  {
+    company: "ThinkOn Inc.",
+    role: "Intermediate Software Engineer",
+    duration: "April 2024 - Present",
+    description: [
+      "Reduced technical debt for 21 enterprise clients by migrating from Angular to React, decreasing bugs by 20% and simplifying maintenance with Material UI and TypeScript.",
+      "Set up an automated testing environment with Cypress for Material UI migration, cutting manual testing by 24%.",
+      "Implemented OAuth 2.0 for secure user authentication and error handling measures using MSAL.",
+      "Collaborate closely with Product and QA teams on project planning, feature requirements, and bug resolution.",
     ],
     image: ThinkOn,
     technologies: [
@@ -126,6 +152,19 @@ export const ExperienceCard = ({ experience }: { experience: Experience }) => {
           >
             {experience.company}
           </Text>
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            mb={2}
+          >
+            <Text fontWeight="bold" fontSize="md" textColor={cardTextColor}>
+              {experience.role}
+            </Text>
+            <Text fontWeight="bold" fontSize="md" textColor={cardTextColor}>
+              {experience.duration}
+            </Text>
+          </Box>
           <Wrap>
             {experience.technologies.map((tech, index) => (
               <Tag
@@ -163,6 +202,13 @@ export const ExperienceCard = ({ experience }: { experience: Experience }) => {
                     alt={experience.company}
                     borderRadius="md"
                   />
+                  <Text
+                    fontWeight="bold"
+                    fontSize="lg"
+                    textColor={titleTextColor}
+                  >
+                    {experience.role}
+                  </Text>
                   <List spacing={2} mt={2}>
                     {experience.description.map((desc, i) => (
                       <ListItem key={i} textColor={popUpTextColor}>

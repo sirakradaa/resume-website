@@ -1,4 +1,5 @@
 import AWS from "./aws.png";
+import Azure from "./azure.png";
 import Bootstrap from "./bootstrap.png";
 import CSharp from "./csharp.png";
 import CSS from "./css.png";
@@ -28,17 +29,35 @@ import TypeScript from "./typescript.png";
 import Arrival from "./arrival.png";
 import BugTracker from "./bug.png";
 import Calculator from "./calculator.png";
+import Email from "./email.png";
 import MarvelAndDC from "./marvelAndDC.png";
 
 // Define an array of projects with their corresponding images
 const ProjectsImages = [
   {
+    name: "Serverless Email Notification System",
+    logo: Email,
+    link: "https://github.com/sirakradaa/serverless-email-notification-system",
+    description:
+      "This project is a serverless email notification system that allows users to register and automatically receive welcome emails. It demonstrates the integration of various AWS services (SQS, Lambda, SES, SNS) with a Node.js backend, showcasing a modern, cloud-native application architecture. The system was developed to demonstrate proficiency in serverless architecture, AWS services, and Node.js.",
+    technologies: [
+      "AWS",
+      "Express",
+      "Lambda",
+      "MySQL",
+      "Node.js",
+      "SES",
+      "SNS",
+      "SQS",
+    ],
+  },
+  {
     name: "Arrival",
     logo: Arrival,
-    link: "https://github.com/CMPUT301W20T07/arrival/wiki",
+    link: "https://github.com/CMPUT301W20T07/arrival",
     description:
       "Arrival is an Edmonton-based ride sharing platform for Android. Users can sign up as a Rider, or Driver, depending on their needs. More information about the app's features and development can be found on the project's Wiki.",
-    technologies: ["Android SDK", "Java", "Express", "Firebase", "Travis CI"],
+    technologies: ["Android SDK", "Express", "Firebase", "Java", "Travis CI"],
   },
   {
     name: "Marvel and DC",
@@ -46,7 +65,7 @@ const ProjectsImages = [
     link: "https://github.com/sirakradaa/marvel-and-dc",
     description:
       "Fan page of 4 marvel/dc heroes and 4 marvel/dc villains which allows the user to submit the their heroes/villains in order of most to least favourite. Along with some pictures, descriptions, and affiliation information about the character.",
-    technologies: ["React", "Redux", "JavaScript", "CSS", "HTML"],
+    technologies: ["CSS", "HTML", "JavaScript", "React", "Redux"],
   },
   {
     name: "BugTracker",
@@ -54,7 +73,7 @@ const ProjectsImages = [
     link: "https://github.com/sirakradaa/BugTracker",
     description:
       "A bug tracker that allows users to input bugs with a description and priority (Low, Medium, High). Bugs can also be resolved to remove them from the list. Developed using React, Node.js, HTML, CSS. Includes testing with React Testing Library.",
-    technologies: ["React", "Node.js", "HTML", "CSS"],
+    technologies: ["CSS", "HTML", "Node.js", "React"],
   },
   {
     name: "Calculator",
@@ -62,7 +81,7 @@ const ProjectsImages = [
     link: "https://github.com/sirakradaa/Interest",
     description:
       "I've created a simple web-based project that calculates interest based on user input. I used HTML to structure the page, CSS for styling, and JavaScript to handle the logic behind the calculations. This project showcases basic web development skills, allowing users to enter values and see the interest calculated dynamically on the page.",
-    technologies: ["HTML", "CSS", "JavaScript"],
+    technologies: ["CSS", "HTML", "JavaScript"],
   },
 ];
 
@@ -71,8 +90,14 @@ const SkillsList = [
   {
     name: "AWS",
     logo: AWS,
-    professionalExperience: "1 year",
-    personalExperience: "1 year",
+    professionalExperience: "2 year",
+    personalExperience: "2 year",
+  },
+  {
+    name: "Azure",
+    logo: Azure,
+    professionalExperience: "2 years",
+    personalExperience: "2 year",
   },
   {
     name: "Bootstrap",
