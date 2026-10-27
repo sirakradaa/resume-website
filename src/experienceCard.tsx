@@ -24,6 +24,8 @@ import {
 } from "@chakra-ui/react";
 import { ArrowForwardIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import ThinkOn from "./assets/thinkon.png";
+import Shopify from "./assets/shopify.png";
+import Outlier from "./assets/outlier.svg";
 import { AnimatePresence, motion } from "framer-motion";
 
 interface Experience {
@@ -38,60 +40,63 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    company: "ThinkOn Inc.",
-    role: "Junior Software Engineer",
-    duration: "June 2022 - April 2024",
+    company: "Shopify",
+    role: "Senior Developer Support",
+    duration: "June 2025 - Present",
     description: [
-      "Developed 15+ features for a distributed backup platform, adapting 20 APIs to Veeam updates, improving data integration and reducing upgrade time by 25%, using TypeScript, JavaScript, Node.js, React, Java, and MySQL.",
-      "Maintain 100% uptime by resolving all incidents and outages during SRE rotations.",
-      "Engineered a batch processing system, using asynchronous processing to prep downloads, eliminating a 12% error rate and increasing data speeds.",
-      "Architected and built 60+ scalable features across microservices, enhancing user engagement and reducing server load with effective caching, using TypeScript, JavaScript, Node.js, and REST APIs.",
+      "Resolved 80+ complex support cases per quarter across custom Shopify apps, storefronts, and integrations in JavaScript, TypeScript, React, Node.js, REST, Observe, and GraphQL.",
+      "Reduced repeat incidents by about 15% by tracing recurring API and platform bugs back to the shared implementation pattern.",
+      "Supported Enterprise merchants representing millions in GMV and cut escalated resolution time by about 20%.",
+      "Partnered with Engineering, Legal, Sales, and Product on 10–15 escalations a month, with reproductions and logs that sped up bug triage.",
+      "Kept 2–4 live support conversations going at once without dropping the technical details.",
+      "Wrote 15+ troubleshooting guides and escalation playbooks for the issues that kept coming back.",
+    ],
+    image: Shopify,
+    technologies: ["JavaScript", "TypeScript", "React", "Node.js", "GraphQL", "REST"],
+    link: "https://www.shopify.com",
+  },
+  {
+    company: "ThinkOn",
+    role: "Software Engineer",
+    duration: "April 2024 - June 2025",
+    description: [
+      "Cut backend reset times by 95% by fixing a bug that fired on every code save.",
+      "Lowered AWS S3 storage costs by 90% with client-specific buckets for 300+ enterprise clients.",
+      "Shortened releases by shipping APIs, caching, and refactors through a GitLab CI/CD pipeline.",
+      "Raised data speeds about 100x, from roughly 100 KB/s to 10 MB/s, and cleared a 12% error rate with a batch processing microservice.",
+      "Improved code quality by 20% through reviews of work from 3+ engineers.",
     ],
     image: ThinkOn,
-    technologies: [
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "Redux",
-      "Node.js",
-      "Nest.js",
-      "Cypress",
-      "Material UI",
-      "Lodash",
-      "HTML/CSS",
-      "SQL",
-      "Git",
-      "Docker",
-    ],
+    technologies: ["JavaScript", "TypeScript", "Node.js", "React", "Java", "AWS", "SQL"],
     link: "https://thinkon.com",
   },
   {
-    company: "ThinkOn Inc.",
-    role: "Intermediate Software Engineer",
-    duration: "April 2024 - Present",
+    company: "ThinkOn",
+    role: "Junior Software Engineer",
+    duration: "June 2022 - April 2024",
     description: [
-      "Reduced technical debt for 21 enterprise clients by migrating from Angular to React, decreasing bugs by 20% and simplifying maintenance with Material UI and TypeScript.",
-      "Set up an automated testing environment with Cypress for Material UI migration, cutting manual testing by 24%.",
-      "Implemented OAuth 2.0 for secure user authentication and error handling measures using MSAL.",
-      "Collaborate closely with Product and QA teams on project planning, feature requirements, and bug resolution.",
+      "Cut manual frontend testing by 24% with a Cypress setup for a Material UI migration.",
+      "Built 60+ frontend and backend microservice features, with caching that took pressure off the servers.",
+      "Moved the frontend from Angular to React and reduced bugs by 20% for 300+ enterprise clients.",
+      "Added OAuth 2.0 with Azure so people could back up Microsoft 365 data.",
+      "Shipped 15+ backup features for Exchange, OneDrive, SharePoint, and Teams, and adapted 20 APIs to Veeam updates.",
     ],
     image: ThinkOn,
-    technologies: [
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "Redux",
-      "Node.js",
-      "Nest.js",
-      "Cypress",
-      "Material UI",
-      "Lodash",
-      "HTML/CSS",
-      "SQL",
-      "Git",
-      "Docker",
-    ],
+    technologies: ["TypeScript", "React", "Node.js", "Cypress", "Azure", "Java"],
     link: "https://thinkon.com",
+  },
+  {
+    company: "Outlier",
+    role: "Freelance Software Engineer",
+    duration: "January 2024 - Present",
+    description: [
+      "Reviewed 700+ AI-generated responses and marked where the prompt or the answer went off the rails.",
+      "Made anomaly detection more reliable across Python, JavaScript, Java, C#, C++, and Kotlin.",
+      "Fixed 400+ pieces of AI-generated code in Python, JavaScript, Java, TypeScript, Kotlin, C#, and C++.",
+    ],
+    image: Outlier,
+    technologies: ["Python", "JavaScript", "TypeScript", "Java", "Kotlin", "C#"],
+    link: "https://outlier.ai",
   },
 ];
 
@@ -100,20 +105,20 @@ const MotionBox = motion(Box);
 export const ExperienceCard = ({ experience }: { experience: Experience }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const bgGradient = useColorModeValue(
-    "linear(to-t, brand.cream, brand.beaver 50%)",
-    "linear(to-b, brand.cream, brand.red 100%)"
+    "linear(to-t, #fff6d6, brand.red 78%)",
+    "linear(to-t, #fff4cc, #f0b79a 62%)"
   );
-  const titleTextColor = useColorModeValue("brand.white", "brand.deltaBlue");
+  const titleTextColor = useColorModeValue("brand.deltaBlue", "brand.cream");
   const cardTextColor = useColorModeValue("brand.deltaBlue", "brand.deltaBlue");
-  const popUpTextColor = useColorModeValue("brand.cream", "brand.deltaBlue");
+  const popUpTextColor = useColorModeValue("brand.deltaBlue", "brand.cream");
   const shadowColor = useColorModeValue(
-    "rgba(255, 255, 255, 0.1)",
-    "rgba(0, 0, 0, 0.1)"
+    "rgba(0, 0, 0, 0.14)",
+    "rgba(243, 243, 186, 0.16)"
   );
-  const modalBg = useColorModeValue("brand.richBlack", "white");
-  const buttonColor = useColorModeValue("brand.lighterBlue", "brand.yinMnBlue");
+  const modalBg = useColorModeValue("#fffaf0", "#161022");
+  const buttonColor = useColorModeValue("brand.red", "brand.lighterBlue");
   const buttonTextColor = useColorModeValue("white", "white");
-  const tagColor = useColorModeValue("brand.deltaBlue", "brand.cream");
+  const tagColor = useColorModeValue("brand.cream", "brand.deltaBlue");
 
   return (
     <>
@@ -152,19 +157,12 @@ export const ExperienceCard = ({ experience }: { experience: Experience }) => {
           >
             {experience.company}
           </Text>
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            mb={2}
-          >
-            <Text fontWeight="bold" fontSize="md" textColor={cardTextColor}>
-              {experience.role}
-            </Text>
-            <Text fontWeight="bold" fontSize="md" textColor={cardTextColor}>
-              {experience.duration}
-            </Text>
-          </Box>
+          <Text fontWeight="bold" fontSize="md" textColor={cardTextColor}>
+            {experience.role}
+          </Text>
+          <Text fontSize="sm" mb={2} textColor={cardTextColor}>
+            {experience.duration}
+          </Text>
           <Wrap>
             {experience.technologies.map((tech, index) => (
               <Tag

@@ -90,27 +90,27 @@ export const Contact = () => {
       );
   };
 
-  const bgColor = useColorModeValue("brand.richBlack", "brand.cream");
-  const textColor = useColorModeValue("brand.cream", "brand.deltaBlue");
+  const bgColor = useColorModeValue("brand.cream", "brand.richBlack");
+  const textColor = useColorModeValue("brand.deltaBlue", "brand.cream");
   const buttonBackgroundColor = useColorModeValue(
-    "brand.deltaBlue",
-    "brand.red"
+    "brand.red",
+    "brand.lighterBlue"
   );
   const buttonText = useColorModeValue("brand.cream", "brand.cream");
   const buttonHighlightBackground = useColorModeValue(
-    "brand.red",
-    "brand.deltaBlue"
+    "brand.deltaBlue",
+    "brand.red"
   );
   const bgGradient = useColorModeValue(
-    "linear(to-b, brand.red, brand.richBlack 0%)",
-    "linear(to-b, brand.red, brand.cream 50%)"
+    "linear(to-b, brand.red, brand.cream 50%)",
+    "linear(to-b, #6e2f45 0%, #241433 40%, brand.richBlack 100%)"
   );
-  const iconColor = useColorModeValue("brand.cream", "brand.deltaBlue");
+  const iconColor = useColorModeValue("brand.deltaBlue", "brand.cream");
 
   const inputStyles = {
     border: "none",
     borderBottom: "2px solid",
-    borderColor: useColorModeValue("brand.cream", "brand.deltaBlue"),
+    borderColor: useColorModeValue("brand.deltaBlue", "brand.cream"),
     borderRadius: "0",
     px: 0,
     bg: "transparent",

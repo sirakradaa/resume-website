@@ -26,18 +26,18 @@ const Header = () => {
   const location = useLocation();
 
   const bgColor = useColorModeValue(
-    isScrolled ? "rgba(49, 61, 90, 0.8)" : "transparent",
-    isScrolled ? "rgba(194, 87, 87, 0.8)" : "transparent"
+    isScrolled ? "rgba(243, 243, 186, 0.88)" : "transparent",
+    isScrolled ? "rgba(13, 19, 33, 0.82)" : "transparent"
   );
-  const textColor = useColorModeValue("brand.cream", "brand.cream");
+  const textColor = useColorModeValue("brand.deltaBlue", "brand.cream");
   const boxShadow = isScrolled ? "0 4px 6px rgba(0, 0, 0, 0.1)" : "none";
   const backdropFilter = isScrolled ? "blur(5px)" : "none";
 
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   const menuBgColor = useColorModeValue(
-    "rgba(49, 61, 90, 0.6)", // Light mode: brand.red with 90% opacity
-    "rgba(180, 144, 130, 0.6)" // Dark mode: brand.deltaBlue with 90% opacity
+    "rgba(243, 243, 186, 0.94)",
+    "rgba(22, 16, 34, 0.94)"
   );
 
   useEffect(() => {
@@ -56,19 +56,10 @@ const Header = () => {
     };
   }, []);
 
-  const handleResumeDownload = () => {
-    const resumeUrl =
-      "https://docs.google.com/document/d/1W8mIrU4YW83lp28y9xuJYZIHesWWQra3/export?format=pdf";
-    const link = document.createElement("a");
-    link.href = resumeUrl;
-    link.download = "Sirak Radaa - Resume.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  const resumeUrl = `${process.env.PUBLIC_URL}/Sirak_Radaa_Resume.pdf`;
 
   const hoverStyle = {
-    bg: colorMode === "dark" ? "brand.beaver" : "brand.yinMnBlue",
+    bg: colorMode === "dark" ? "brand.yinMnBlue" : "brand.beaver",
     color: "brand.cream",
   };
 
@@ -86,7 +77,7 @@ const Header = () => {
     const activeStyle = {
       fontWeight: "bold",
       backgroundColor:
-        colorMode === "dark" ? "brand.beaver" : "brand.yinMnBlue",
+        colorMode === "dark" ? "brand.yinMnBlue" : "brand.beaver",
       color: "brand.cream",
     };
     const inactiveStyle = {
@@ -171,8 +162,8 @@ const Header = () => {
                     _hover={{
                       bg:
                         colorMode === "light"
-                          ? "rgba(49, 61, 90, 0.7)"
-                          : "rgba(194, 87, 87, 0.7)",
+                          ? "rgba(194, 87, 87, 0.28)"
+                          : "rgba(90, 106, 184, 0.45)",
                     }}
                   >
                     <MenuItemLink
@@ -186,8 +177,10 @@ const Header = () => {
             </Menu>
             <Flex>
               <Button
+                as="a"
+                href={resumeUrl}
+                download="Sirak_Radaa_Resume.pdf"
                 leftIcon={<DownloadIcon />}
-                onClick={handleResumeDownload}
                 size="sm"
                 variant="ghost"
                 color={textColor}
@@ -197,13 +190,14 @@ const Header = () => {
                 Resume
               </Button>
               <Button
+                aria-label={colorMode === "dark" ? "Switch to day mode" : "Switch to night mode"}
                 color={textColor}
                 onClick={toggleColorMode}
                 size="sm"
                 variant="ghost"
                 _hover={hoverStyle}
               >
-                {colorMode === "dark" ? <MoonIcon /> : <SunIcon />}
+                {colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
               </Button>
             </Flex>
           </>
@@ -215,8 +209,10 @@ const Header = () => {
             </Flex>
             <Flex align="center" justify="flex-end" flex="1">
               <Button
+                as="a"
+                href={resumeUrl}
+                download="Sirak_Radaa_Resume.pdf"
                 leftIcon={<DownloadIcon />}
-                onClick={handleResumeDownload}
                 size="sm"
                 variant="ghost"
                 color={textColor}
@@ -226,13 +222,14 @@ const Header = () => {
                 My Resume
               </Button>
               <Button
+                aria-label={colorMode === "dark" ? "Switch to day mode" : "Switch to night mode"}
                 color={textColor}
                 onClick={toggleColorMode}
                 size="sm"
                 variant="ghost"
                 _hover={hoverStyle}
               >
-                {colorMode === "dark" ? <MoonIcon /> : <SunIcon />}
+                {colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
               </Button>
             </Flex>
           </Flex>

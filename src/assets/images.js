@@ -90,7 +90,7 @@ const SkillsList = [
   {
     name: "AWS",
     logo: AWS,
-    professionalExperience: "2 year",
+    professionalExperience: "2 years",
     personalExperience: "2 year",
   },
   {
@@ -108,13 +108,13 @@ const SkillsList = [
   {
     name: "CSharp",
     logo: CSharp,
-    professionalExperience: "0 years",
+    professionalExperience: "2 years",
     personalExperience: "4 years",
   },
   {
     name: "CSS",
     logo: CSS,
-    professionalExperience: "2 years",
+    professionalExperience: "4 years",
     personalExperience: "3 years",
   },
   {
@@ -156,13 +156,13 @@ const SkillsList = [
   {
     name: "Git",
     logo: Git,
-    professionalExperience: "2 years",
+    professionalExperience: "4 years",
     personalExperience: "5 years",
   },
   {
     name: "HTML",
     logo: HTML,
-    professionalExperience: "2 years",
+    professionalExperience: "4 years",
     personalExperience: "3 years",
   },
   {
@@ -174,13 +174,13 @@ const SkillsList = [
   {
     name: "Java",
     logo: Java,
-    professionalExperience: "2 years",
+    professionalExperience: "4 years",
     personalExperience: "4 years",
   },
   {
     name: "JavaScript",
     logo: JavaScript,
-    professionalExperience: "2 years",
+    professionalExperience: "4 years",
     personalExperience: "3 years",
   },
   {
@@ -204,7 +204,7 @@ const SkillsList = [
   {
     name: "Node",
     logo: Node,
-    professionalExperience: "2 years",
+    professionalExperience: "4 years",
     personalExperience: "3 years",
   },
   {
@@ -216,13 +216,13 @@ const SkillsList = [
   {
     name: "Python",
     logo: Python,
-    professionalExperience: "0 years",
+    professionalExperience: "2 years",
     personalExperience: "6 years",
   },
   {
     name: "React",
     logo: React,
-    professionalExperience: "2 years",
+    professionalExperience: "4 years",
     personalExperience: "3 years",
   },
   {
@@ -240,13 +240,13 @@ const SkillsList = [
   {
     name: "SQL",
     logo: SQL,
-    professionalExperience: "2 years",
+    professionalExperience: "3 years",
     personalExperience: "3 years",
   },
   {
     name: "TypeScript",
     logo: TypeScript,
-    professionalExperience: "2 years",
+    professionalExperience: "4 years",
     personalExperience: "3 years",
   },
 ];

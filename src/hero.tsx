@@ -17,15 +17,15 @@ const MotionText = motion(Text);
 const MotionStack = motion(Stack);
 
 const Hero = () => {
-  const textColor = useColorModeValue("brand.cream", "brand.deltaBlue");
-  const bgColor = useColorModeValue("brand.richBlack", "brand.cream");
+  const textColor = useColorModeValue("brand.deltaBlue", "brand.cream");
+  const bgColor = useColorModeValue("brand.cream", "brand.richBlack");
   const bgGradient = useColorModeValue(
-    "linear(to-b, brand.red, brand.richBlack 0%)",
-    "linear(to-b, brand.red, brand.cream 80%)"
+    "linear(to-b, brand.red, brand.cream 78%)",
+    "linear(to-b, #6e2f45 0%, #241433 40%, brand.richBlack 100%)"
   );
   const shadowColor = useColorModeValue(
-    "rgba(255, 255, 255, 0.2)",
-    "rgba(0, 0, 0, 0.2)"
+    "rgba(0, 0, 0, 0.18)",
+    "rgba(243, 243, 186, 0.22)"
   );
 
   return (
@@ -72,21 +72,23 @@ const Hero = () => {
             </MotionHeading>
             <MotionHeading
               as="h1"
-              fontSize={["4xl", "5xl", "6xl", "7xl"]}
+              fontSize={["xl", "2xl", "3xl", "4xl"]}
               fontWeight="normal"
               textAlign="center"
-              lineHeight={1}
+              lineHeight={1.25}
               letterSpacing="tight"
+              maxWidth="900px"
               color={textColor}
               textShadow={`4px 4px 8px ${shadowColor}`}
             >
-              A Software Engineer
+              Software engineer doing customer-facing technical work with
+              merchants and sales teams.
             </MotionHeading>
           </MotionStack>
           <MotionText
-            fontSize={["lg", "xl", "1xl"]}
+            fontSize={["md", "lg", "xl"]}
             textAlign="center"
-            maxWidth="800px"
+            maxWidth="820px"
             color={textColor}
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -94,10 +96,7 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
             mb={12}
           >
-            I am a dedicated software engineer with a strong focus on creating
-            efficient and user-friendly web applications. My experience spans
-            various technologies, and I'm committed to continuous learning and
-            delivering high-quality solutions.
+            JavaScript, TypeScript, React, Node.js, REST, GraphQL, APIs, SaaS
           </MotionText>
           <Box width="100%">
             <MotionHeading

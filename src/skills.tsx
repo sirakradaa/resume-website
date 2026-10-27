@@ -29,9 +29,9 @@ const HexagonCard = ({ skill, index }: { skill: Skill; index: number }) => {
   const [isHovered, setIsHovered] = React.useState(false);
   const [isTapped, setIsTapped] = React.useState(false);
   const [isRotated, setIsRotated] = React.useState(false);
-  const textColor = useColorModeValue("brand.yinMnBlue", "brand.deltaBlue");
-  const gradientStartColor = useColorModeValue("brand.cream", "brand.cream");
-  const gradientEndColor = useColorModeValue("brand.beaver", "brand.red");
+  const textColor = useColorModeValue("brand.deltaBlue", "brand.deltaBlue");
+  const gradientStartColor = useColorModeValue("#fff6d6", "#fff4cc");
+  const gradientEndColor = useColorModeValue("brand.red", "#f0b79a");
 
   const softness = Math.min(index * 20 + 50, 90);
   const bgCardGradient = `linear(to-t, ${gradientStartColor}, ${gradientEndColor} ${softness}%)`;
@@ -136,15 +136,15 @@ const HexagonCard = ({ skill, index }: { skill: Skill; index: number }) => {
 };
 
 const Skills = () => {
-  const bgColor = useColorModeValue("brand.richBlack", "brand.cream");
-  const textColor = useColorModeValue("brand.cream", "brand.deltaBlue");
+  const bgColor = useColorModeValue("brand.cream", "brand.richBlack");
+  const textColor = useColorModeValue("brand.deltaBlue", "brand.cream");
   const bgGradient = useColorModeValue(
-    "linear(to-b, brand.red, brand.richBlack 0%)",
-    "linear(to-b, brand.red, brand.cream 50%)"
+    "linear(to-b, brand.red, brand.cream 50%)",
+    "linear(to-b, #6e2f45 0%, #241433 40%, brand.richBlack 100%)"
   );
   const shadowColor = useColorModeValue(
-    "rgba(255, 255, 255, 0.1)",
-    "rgba(0, 0, 0, 0.1)"
+    "rgba(0, 0, 0, 0.12)",
+    "rgba(243, 243, 186, 0.16)"
   );
 
   const toast = useToast();
@@ -205,6 +205,9 @@ const Skills = () => {
           >
             My Skills
           </MotionHeading>
+          <Text textAlign="center" fontSize={["md", "lg"]} mt={-6}>
+            Professional Scrum Master I, Scrum.org, June 2022. Hover a shape, or tap it on your phone.
+          </Text>
           <Flex
             justifyContent="center"
             flexWrap="wrap"

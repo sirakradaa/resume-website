@@ -42,16 +42,16 @@ const Smoke = styled.div`
 `;
 
 const AboutMe = () => {
-  const bgColor = useColorModeValue("brand.black", "brand.cream");
-  const textColor = useColorModeValue("brand.cream", "brand.deltaBlue");
+  const bgColor = useColorModeValue("brand.cream", "brand.richBlack");
+  const textColor = useColorModeValue("brand.deltaBlue", "brand.cream");
   const imageRef = useRef(null);
   const bgGradient = useColorModeValue(
-    "linear(to-b, brand.red, brand.richBlack 0%)",
-    "linear(to-b, brand.red, brand.cream 50%)"
+    "linear(to-b, brand.red, brand.cream 50%)",
+    "linear(to-b, #6e2f45 0%, #241433 40%, brand.richBlack 100%)"
   );
 
   const { colorMode } = useColorMode();
-  const sirakImage = useColorModeValue(SirakNight, SirakDay);
+  const sirakImage = useColorModeValue(SirakDay, SirakNight);
 
   useEffect(() => {
     if (imageRef.current) {
@@ -67,8 +67,8 @@ const AboutMe = () => {
   }, []);
 
   const shadowColor = useColorModeValue(
-    "rgba(255, 255, 255, 0.1)",
-    "rgba(0, 0, 0, 0.1)"
+    "rgba(0, 0, 0, 0.12)",
+    "rgba(243, 243, 186, 0.16)"
   );
 
   return (
@@ -118,35 +118,26 @@ const AboutMe = () => {
         >
           <Box flex="1" pr={[0, 0, 10]} pb={[5, 5, 0]}>
             <Text mb={4}>
-              As a Software Engineer at ThinkOn Inc., I have been working on
-              developing cloud-native applications using a variety of modern
-              technologies, including JavaScript, TypeScript, React, Redux,
-              Nest.js, Node.js, Git, and Material-UI. In this role, I have been
-              able to apply my passion for learning new strategies and
-              approaches to solving complex problems.
+              I'm a Senior Developer Support engineer at Shopify, working
+              remotely from Edmonton. I dig through logs, code, and errors to
+              unblock live stores, then write the guide so the next person
+              doesn't have to start from zero. JavaScript, TypeScript, React,
+              Node.js, REST, and GraphQL are the tools I reach for most.
             </Text>
             <Text mb={4}>
-              Throughout my time at ThinkOn, I have contributed to multiple
-              projects that have significantly improved the scalability,
-              performance, and security of our products and services. For
-              example, I created an asynchronous download application that
-              reduced the client's download failure rate from 12% to 0%,
-              enhancing connection stability and increasing download speeds. I
-              have also played a key role in reducing technical debt for 21
-              enterprise companies by migrating their front-ends from Angular to
-              React, recreating functionality and UI with React using tools like
-              Material UI and Lodash.
+              Before Shopify I spent three years at ThinkOn, a SaaS data
+              company. I started as a junior engineer in 2022 and became a
+              software engineer in 2024. The fun problems were the stubborn
+              ones: a frontend move from Angular to React, a download path that
+              failed 12% of the time, and Microsoft 365 backups wired up with
+              OAuth and Azure.
             </Text>
             <Text mb={4}>
-              My most valuable skill is the ability to learn quickly and
-              effectively, which allows me to not only meet specific
-              requirements but also adapt to various roles within an
-              organization. Combined with my strong communication skills and
-              willingness to embrace challenges, this makes me a valuable asset
-              to any team. Whether I am developing new features, designing
-              automated test cases, or onboarding junior engineers, I am driven
-              by a passion for creating high-quality software solutions that
-              exceed client expectations.
+              I also freelance with Outlier, reviewing AI-generated code in
+              Python, JavaScript, Java, TypeScript, Kotlin, C#, and C++. I
+              studied Computer Science at the University of Alberta, and I'm a
+              Professional Scrum Master. The skill I trust most is learning
+              fast and explaining what I found.
             </Text>
           </Box>
           <Box
@@ -160,7 +151,7 @@ const AboutMe = () => {
               ref={imageRef}
               borderRadius="2xl"
               src={sirakImage}
-              alt={`Sirak Radaa - ${colorMode === "dark" ? "Day" : "Night"}`}
+              alt={`Sirak Radaa - ${colorMode === "dark" ? "Night" : "Day"}`}
               opacity="0"
               transform="translateY(-50px)"
             />

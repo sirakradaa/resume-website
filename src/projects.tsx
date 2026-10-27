@@ -22,12 +22,12 @@ const MotionBox = motion(Box);
 const MotionHeading = motion(Heading);
 
 const ProjectCard = ({ project, index }: { project: any; index: number }) => {
-  const cardBg = useColorModeValue("brand.deltaBlue", "brand.cream");
-  const buttonColor = useColorModeValue("brand.yinMnBlue", "brand.cream");
+  const cardBg = useColorModeValue("brand.cream", "brand.cream");
+  const buttonColor = useColorModeValue("brand.red", "brand.yinMnBlue");
   const textColor = useColorModeValue("brand.deltaBlue", "brand.deltaBlue");
-  const buttonTextColor = useColorModeValue("white", "black");
-  const gradientStartColor = useColorModeValue("brand.cream", "brand.red");
-  const gradientEndColor = useColorModeValue("brand.beaver", "brand.cream");
+  const buttonTextColor = useColorModeValue("white", "white");
+  const gradientStartColor = useColorModeValue("brand.cream", "#fff6d6");
+  const gradientEndColor = useColorModeValue("brand.red", "#f0b79a");
 
   // Calculate the softness of the gradient based on the index
   const softness = Math.min(index * 40 + 40, 90); // Increase softness by 10% for each card, max 90%
@@ -91,15 +91,15 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
 };
 
 export const Projects = () => {
-  const bgColor = useColorModeValue("brand.richBlack", "brand.cream");
-  const textColor = useColorModeValue("brand.cream", "brand.deltaBlue");
+  const bgColor = useColorModeValue("brand.cream", "brand.richBlack");
+  const textColor = useColorModeValue("brand.deltaBlue", "brand.cream");
   const bgGradient = useColorModeValue(
-    "linear(to-b, brand.red, brand.richBlack 0%)",
-    "linear(to-b, brand.red, brand.cream 50%)"
+    "linear(to-b, brand.red, brand.cream 50%)",
+    "linear(to-b, #6e2f45 0%, #241433 40%, brand.richBlack 100%)"
   );
   const shadowColor = useColorModeValue(
-    "rgba(255, 255, 255, 0.1)",
-    "rgba(0, 0, 0, 0.1)"
+    "rgba(0, 0, 0, 0.12)",
+    "rgba(243, 243, 186, 0.16)"
   );
 
   return (

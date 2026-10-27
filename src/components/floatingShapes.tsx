@@ -1,57 +1,62 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Box, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 const FloatingShapes = () => {
   const { colorMode } = useColorMode();
-  const shapes = Array.from({ length: 50 }); // Increase the number of shapes for more stars
+  const starColor = useColorModeValue("#313D5A", "#F3F3BA");
+  const isNight = colorMode === "dark";
 
-  const shapeStyles = {
-    position: "absolute",
-    opacity: colorMode === "dark" ? 0.6 : 0.8, // Increase opacity slightly in dark mode
-    animation: "float 10s infinite ease-in-out",
-  };
-
-  const starColor = useColorModeValue("white", "black");
+  const stars = useMemo(
+    () =>
+      Array.from({ length: 18 }, (_, index) => ({
+        top: `${(index * 41) % 92}%`,
+        left: `${(index * 57 + 8) % 94}%`,
+        size: 7 + (index % 4) * 5,
+        delay: (index % 6) * 0.35,
+        duration: 7 + (index % 5) * 1.4,
+      })),
+    []
+  );
 
   return (
-    <>
-      {shapes.map((_, index) => (
+    <Box position="absolute" inset={0} pointerEvents="none" zIndex={0} aria-hidden>
+      {isNight && (
+        <Box
+          position="absolute"
+          top="-90px"
+          right="-50px"
+          w="320px"
+          h="320px"
+          borderRadius="full"
+          bg="rgba(243, 243, 186, 0.09)"
+          boxShadow="0 0 80px 20px rgba(194, 87, 87, 0.18)"
+        />
+      )}
+      {stars.map((star, index) => (
         <Box
           key={index}
-          width={colorMode === "dark" ? "40px" : "5px"} // Smaller in dark mode
-          height={colorMode === "dark" ? "40px" : "5px"} // Smaller in dark mode
-          top={`${Math.random() * 100}%`}
-          left={`${Math.random() * 100}%`}
-          sx={{
-            ...shapeStyles,
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 5}s`,
-            animationDuration: `${Math.random() * 10 + 5}s`, // Random duration between 5s and 15s
-          }}
+          position="absolute"
+          top={star.top}
+          left={star.left}
+          width={`${star.size}px`}
+          height={`${star.size}px`}
+          sx={{ animation: `float ${star.duration}s ${star.delay}s infinite ease-in-out` }}
         >
           <motion.svg
             viewBox="0 0 100 100"
             xmlns="http://www.w3.org/2000/svg"
-            fill="none"
+            fill={index % 3 === 0 ? starColor : "none"}
             stroke={starColor}
-            strokeWidth={colorMode === "dark" ? "2" : "4"} // Thicker stroke in dark mode for more shine
-            animate={{
-              scale: colorMode === "dark" ? [1, 1.1, 1] : [1, 1.3, 1], // More pronounced pulsing in dark mode
-              opacity: colorMode === "dark" ? [0.6, 0.8, 0.6] : [0.6, 1, 0.6], // More opacity variation in dark mode
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+            strokeWidth="3"
+            animate={{ opacity: [0.35, 0.9, 0.35], rotate: [0, 12, 0] }}
+            transition={{ duration: star.duration, repeat: Infinity, ease: "easeInOut" }}
           >
-            <path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" />
+            <path d="M50 4 L61 38 L96 50 L61 62 L50 96 L39 62 L4 50 L39 38 Z" />
           </motion.svg>
         </Box>
       ))}
-    </>
+    </Box>
   );
 };
 
