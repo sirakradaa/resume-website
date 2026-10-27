@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import {
   Box,
   Button,
@@ -30,13 +30,80 @@ const pulse = keyframes`
   100% { transform: scale(1); }
 `;
 
+const MIN_FILL_MS = 1000;
+const MIN_RESEND_MS = 30000;
+const LAST_SENT_KEY = "contact-sent-at";
+
+const SPAM_PATTERNS = [
+  /pay\s*per\s*click/i,
+  /desired keywords/i,
+  /traffic amount/i,
+  /guest\s*posts?/i,
+  /backlinks?/i,
+  /link\s*building/i,
+  /rank(?:ing)? (?:your|on) (?:website|google)/i,
+  /increase your (?:traffic|sales|ranking)/i,
+  /\bseo\b.{0,40}\b(?:services?|packages?|campaigns?|keywords?|rankings?|traffic)\b/i,
+  /\b(?:services?|packages?|campaigns?)\b.{0,40}\bseo\b/i,
+];
+
+type ContactFields = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  message: string;
+};
+
+const hasRealName = (value: string) => /[a-z]/i.test(value.trim());
+
+const spamReason = (
+  fields: ContactFields,
+  honeypot: string,
+  openedAt: number
+): "bot" | string | null => {
+  if (honeypot.trim()) return "bot";
+  if (Date.now() - openedAt < MIN_FILL_MS) {
+    return "Give it a second, then send it again.";
+  }
+
+  let lastSent = 0;
+  try {
+    lastSent = Number(sessionStorage.getItem(LAST_SENT_KEY) || 0);
+  } catch {
+    lastSent = 0;
+  }
+  if (lastSent && Date.now() - lastSent < MIN_RESEND_MS) {
+    return "Please wait a little before sending another note.";
+  }
+
+  if (!hasRealName(fields.firstName) || !hasRealName(fields.lastName)) {
+    return "Please use your real name.";
+  }
+
+  const message = fields.message.trim();
+  const links = message.match(/https?:\/\/|www\./gi);
+  if (links && links.length > 5) {
+    return "Please remove the extra links and try again.";
+  }
+
+  const blob = `${fields.firstName} ${fields.lastName} ${fields.email} ${message}`;
+  if (SPAM_PATTERNS.some((pattern) => pattern.test(blob))) {
+    return "That looks like advertising, so it was not sent.";
+  }
+
+  return null;
+};
+
 export const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFields>({
     firstName: "",
     lastName: "",
     email: "",
     message: "",
   });
+  const [honeypot, setHoneypot] = useState("");
+  const [isSending, setIsSending] = useState(false);
+  const openedAt = useRef(Date.now());
 
   const toast = useToast();
 
@@ -50,9 +117,44 @@ export const Contact = () => {
     }));
   };
 
+  const clearForm = () => {
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      message: "",
+    });
+    setHoneypot("");
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSending) return;
 
+    const reason = spamReason(formData, honeypot, openedAt.current);
+    if (reason === "bot") {
+      clearForm();
+      toast({
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you soon!",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
+    if (reason) {
+      toast({
+        title: "Message not sent",
+        description: reason,
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    setIsSending(true);
     emailjs
       .send(
         "service_g5ozg4x",
@@ -61,8 +163,12 @@ export const Contact = () => {
         "JVMgmJAGiLl3bE6Da"
       )
       .then(
-        (result) => {
-          console.log(result.text);
+        () => {
+          try {
+            sessionStorage.setItem(LAST_SENT_KEY, String(Date.now()));
+          } catch {
+            // Ignore storage failures. The message already went out.
+          }
           toast({
             title: "Message sent!",
             description: "Thanks for reaching out. I'll get back to you soon!",
@@ -70,15 +176,10 @@ export const Contact = () => {
             duration: 5000,
             isClosable: true,
           });
-          setFormData({
-            firstName: "",
-            lastName: "",
-            email: "",
-            message: "",
-          });
+          clearForm();
+          openedAt.current = Date.now();
         },
-        (error) => {
-          console.log(error.text);
+        () => {
           toast({
             title: "Error",
             description: "Failed to send message. Please try again.",
@@ -87,7 +188,8 @@ export const Contact = () => {
             isClosable: true,
           });
         }
-      );
+      )
+      .finally(() => setIsSending(false));
   };
 
   const bgColor = useColorModeValue("brand.cream", "brand.richBlack");
@@ -199,6 +301,18 @@ export const Contact = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
           >
             <VStack spacing={6}>
+              <Box position="absolute" left="-9999px" aria-hidden="true">
+                <FormLabel htmlFor="leave_blank">Leave this blank</FormLabel>
+                <Input
+                  id="leave_blank"
+                  type="text"
+                  name="leave_blank"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(event) => setHoneypot(event.target.value)}
+                />
+              </Box>
               <FormControl id="firstName" isRequired>
                 <FormLabel>First Name</FormLabel>
                 <Input
@@ -242,6 +356,7 @@ export const Contact = () => {
               </FormControl>
               <Button
                 type="submit"
+                isLoading={isSending}
                 bg={buttonBackgroundColor}
                 color={buttonText}
                 size="lg"
