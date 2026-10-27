@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.77747a51.js",
+    "main.js": "/static/js/main.faf3f054.js",
     "static/media/sirakNight.png": "/static/media/sirakNight.da1452df041d23257efd.png",
     "static/media/sirakDay.png": "/static/media/sirakDay.65b9a9fe27930e39204a.png",
     "static/media/react-native.png": "/static/media/react-native.73a9097c36eb99907ee6.png",
@@ -36,9 +36,9 @@
     "static/media/nestjs.png": "/static/media/nestjs.3d25619e84954b4e895d.png",
     "index.html": "/index.html",
     "static/media/outlier.svg": "/static/media/outlier.bfbb387b7785b1cefb4d5fd2961a1d02.svg",
-    "main.77747a51.js.map": "/static/js/main.77747a51.js.map"
+    "main.faf3f054.js.map": "/static/js/main.faf3f054.js.map"
   },
   "entrypoints": [
-    "static/js/main.77747a51.js"
+    "static/js/main.faf3f054.js"
   ]
 }
