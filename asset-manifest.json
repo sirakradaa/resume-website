@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.9acbf18f.js",
+    "main.js": "/static/js/main.77747a51.js",
     "static/media/sirakNight.png": "/static/media/sirakNight.da1452df041d23257efd.png",
     "static/media/sirakDay.png": "/static/media/sirakDay.65b9a9fe27930e39204a.png",
     "static/media/react-native.png": "/static/media/react-native.73a9097c36eb99907ee6.png",
@@ -29,14 +29,16 @@
     "static/media/sql.png": "/static/media/sql.8c53f46599d600c84b79.png",
     "static/media/node.png": "/static/media/node.8adb9ccc40ab661906cf.png",
     "static/media/javascript.png": "/static/media/javascript.3cacb63905f322fb3541.png",
+    "static/media/shopify.png": "/static/media/shopify.e5c00867a6897c23f3d5.png",
     "static/media/nextjs.png": "/static/media/nextjs.80bf1edc048bbe2aad61.png",
     "static/media/typescript.png": "/static/media/typescript.bb13ebd9561a6ee645c2.png",
     "static/media/calculator.png": "/static/media/calculator.8d5829fac9070581819d.png",
     "static/media/nestjs.png": "/static/media/nestjs.3d25619e84954b4e895d.png",
     "index.html": "/index.html",
-    "main.9acbf18f.js.map": "/static/js/main.9acbf18f.js.map"
+    "static/media/outlier.svg": "/static/media/outlier.bfbb387b7785b1cefb4d5fd2961a1d02.svg",
+    "main.77747a51.js.map": "/static/js/main.77747a51.js.map"
   },
   "entrypoints": [
-    "static/js/main.9acbf18f.js"
+    "static/js/main.77747a51.js"
   ]
 }
